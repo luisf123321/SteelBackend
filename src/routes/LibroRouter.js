@@ -60,7 +60,7 @@ router.get('/Libro/list',(req,resp)=>{
     Libro.find({}, 'Titulo Nombre Genero Paginas Editorial Autor _id')
         .populate({ path: 'Editorial', select: ('Editorial', 'Nombre') })
         .populate({ path: 'Autor', select: ('Autor', 'Nombre') })
-        .skip(desde).limit(5).exec(
+        .skip(desde).exec(
             (err, libros) => {
 
                 if (err) {
