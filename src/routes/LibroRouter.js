@@ -57,7 +57,7 @@ router.get('/Libro/list',(req,resp)=>{
     desde = Number(desde);
 
     // CAMBIO!!! -*-*-*-*-*-*-*
-    Libro.find({}, 'Titulo Nombre Genero Paginas Editorial Autor _id')
+    Libro.find({}, 'Titulo Nombre Genero Descripcion Paginas Editorial Autor _id')
         .populate({ path: 'Editorial', select: ('Editorial', 'Nombre') })
         .populate({ path: 'Autor', select: ('Autor', 'Nombre') })
         .skip(desde).exec(
